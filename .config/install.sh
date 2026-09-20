@@ -29,7 +29,7 @@ esac
 echo "==> Using $AUR_HELPER as AUR helper..."
 
 # 2. Install base build packages and git
-sudo pacman -S --needed --noconfirm base-devel git
+sudo pacman -Sy --needed --noconfirm base-devel git
 
 # 3. Ensure chosen AUR helper exists
 if ! command -v "$AUR_HELPER" &>/dev/null; then
