@@ -1,0 +1,75 @@
+[mgr]
+show_hidden = true
+show_symlink = true
+
+[opener]
+edit = [
+  { run = 'nvim %s', block = true },
+]
+vlc = [
+  { run = 'vlc %s', orphan = true },
+]
+nomacs = [
+  { run = 'nomacs %s', orphan = true },
+]
+rmpc = [
+  { run = '/usr/local/bin/addAndPlaySong %s', orphan = true },
+]
+
+[open]
+prepend_rules = [
+
+ # -------------------- programming related --------------------
+ { url = "*.txt", use = "edit" },
+ { url = "*.html", use = "edit" },
+ { url = "*.css", use = "edit" },
+ { url = "*.js", use = "edit" },
+ { url = "*.ts", use = "edit" },
+ { url = "*.py", use = "edit" },
+ { url = "*.c", use = "edit" },
+ { url = "*.cpp", use = "edit" },
+ { url = "*.java", use = "edit" },
+ { url = "*.json", use = "edit" },
+ { url = "*.jsonc", use = "edit" },
+ { url = "*.toml", use = "edit" },
+ { url = "*.lua", use = "edit" },
+ { url = "*.conf", use = "edit" },
+ { url = "*.kdl", use = "edit" },
+ { url = "*.sh", use = "edit" },
+ { url = "*.fish", use = "edit" },
+ { url = "*.ini", use = "edit" },
+ { url = "*.kvconfig", use = "edit" },
+ { url = "*.xml", use = "edit" },
+ { url = "*.md", use = "edit" },
+ { url = "*.sql", use = "edit" },
+
+ { mime = "text/*", use = "edit" },
+
+ # -------------------- video related --------------------
+ { url = "*.mp4", use = "vlc" },
+ { url = "*.avi", use = "vlc" },
+ { url = "*.mov", use = "vlc" },
+ { url = "*.wmv", use = "vlc" },
+ { url = "*.flv", use = "vlc" },
+ { url = "*.mkv", use = "vlc" },
+ { url = "*.webm", use = "vlc" },
+
+ # -------------------- image related --------------------
+ { url = "*.jpg", use = "nomacs" },
+ { url = "*.jpeg", use = "nomacs" },
+ { url = "*.png", use = "nomacs" },
+ { url = "*.gif", use = "nomacs" },
+ { url = "*.bmp", use = "nomacs" },
+ { url = "*.tif", use = "nomacs" },
+ { url = "*.tiff", use = "nomacs" },
+ { url = "*.webp", use = "nomacs" },
+ { url = "*.avif", use = "nomacs" },
+ { url = "*.svg", use = "nomacs" },
+ { url = "*.ai", use = "nomacs" },
+ { url = "*.eps", use = "nomacs" },
+
+ # -------------------- audio related --------------------
+ { url = "*.mp3", use = "rmpc" },
+ { url = "*.flac", use = "rmpc" },
+ { url = "*.m4a", use = "rmpc" },
+]

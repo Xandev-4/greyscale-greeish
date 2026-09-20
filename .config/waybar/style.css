@@ -1,0 +1,288 @@
+/* ============================================================
+   Waybar — Muted Compact Style
+   Palette: Matugen / Material You (dark forest)
+   ============================================================ */
+
+@import "colors.css";
+
+/* ── Reset & bar base ─────────────────────────────────────── */
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+  font-size: 13px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: @on_surface;
+}
+
+/* ── Shared module pill ───────────────────────────────────── */
+
+#clock,
+#workspaces,
+#pulseaudio,
+#backlight,
+#battery,
+#custom-notification,
+#custom-powermenu {
+  background: @surface_container;
+  color: @on_surface_variant;
+  border-radius: 6px;
+  padding: 4px 12px;
+  margin: 4px 2px;
+}
+
+/* ── Left: Clock ──────────────────────────────────────────── */
+
+#clock {
+  color: @on_surface;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  padding: 4px 14px;
+  margin-left: 8px;
+}
+
+/* ── Left: Window title ───────────────────────────────────── */
+
+#custom-window {
+  background: @surface_container;
+  color: @on_surface;
+  font-size: 12px;
+  border-radius: 6px;
+  padding: 4px 10px;
+  margin: 4px 2px;
+}
+
+/* ── Center: Workspaces ───────────────────────────────────── */
+
+#workspaces {
+  background: @surface_container;
+  border-radius: 6px;
+  margin: 4px 2px;
+  padding: 2px 4px;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @outline;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 4px;
+  padding: 2px 8px;
+  min-width: 18px;
+  opacity: 0.6;
+  transition:
+    opacity 150ms ease,
+    color 150ms ease;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  color: @outline;
+  opacity: 1;
+}
+
+#workspaces button.active {
+  color: @primary;
+}
+
+#workspaces button.urgent {
+  color: @error;
+}
+
+/* ── Right: Music group — single shared capsule ───────────── */
+
+/* ② the group/music box becomes one pill */
+#music {
+  background: @surface_container;
+  border-radius: 6px;
+  margin: 4px 2px;
+  padding: 0;
+}
+
+/* children share the capsule — no individual backgrounds */
+#mpris,
+#custom-music-prev,
+#custom-music-next {
+  background: transparent;
+  border-radius: 0;
+  margin: 0;
+}
+
+#mpris {
+  color: @secondary;
+  padding: 4px 10px;
+}
+
+#mpris.paused {
+  color: @outline;
+}
+
+#custom-music-prev,
+#custom-music-next {
+  color: @outline;
+  padding: 4px 8px;
+  font-size: 14px;
+  opacity: 0.5;
+  transition: opacity 150ms ease;
+}
+
+#custom-music-prev {
+  border-radius: 6px 0 0 6px;
+  padding-left: 10px;
+}
+
+#custom-music-next {
+  border-radius: 0 6px 6px 0;
+  padding-right: 10px;
+}
+
+#custom-music-prev:hover,
+#custom-music-next:hover {
+  background: transparent;
+  color: @outline;
+  opacity: 1;
+}
+
+/* ── Right: Pulseaudio ────────────────────────────────────── */
+
+#pulseaudio {
+  color: @on_surface_variant;
+}
+
+#pulseaudio.muted {
+  color: @outline;
+}
+
+#pulseaudio.bluetooth {
+  color: @tertiary;
+}
+
+/* ── Right: Backlight ─────────────────────────────────────── */
+
+#backlight {
+  color: @on_surface_variant;
+}
+
+/* ── Right: Battery ───────────────────────────────────────── */
+
+#battery {
+  color: @on_surface_variant;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @primary;
+}
+
+#battery.full {
+  color: @on_surface_variant;
+}
+
+#battery.warning {
+  color: @secondary;
+}
+
+#battery.critical {
+  color: @error;
+  background: @error_container;
+}
+
+/* ── Right: System tray group — single shared capsule ─────── */
+
+#system-tray {
+  background: @surface_container;
+  border-radius: 6px;
+  margin: 4px 2px;
+  padding: 0;
+}
+
+#custom-tray-icon,
+#tray {
+  background: transparent;
+  border-radius: 0;
+  margin: 0;
+}
+
+#custom-tray-icon {
+  color: @outline;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 6px 0 0 6px;
+  opacity: 0.5;
+  transition: opacity 150ms ease;
+}
+
+#custom-tray-icon:hover {
+  background: transparent;
+  color: @outline;
+  opacity: 1;
+}
+
+#tray {
+  padding: 4px 8px;
+  border-radius: 0 6px 6px 0;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background: @error_container;
+  border-radius: 4px;
+}
+
+/* ── Right: Notifications ─────────────────────────────────── */
+
+#custom-notification {
+  color: @on_surface_variant;
+  font-size: 15px;
+  padding: 4px 10px;
+}
+
+#custom-notification.notification {
+  color: @tertiary;
+}
+
+#custom-notification.dnd-notification,
+#custom-notification.dnd-none {
+  color: @outline;
+}
+
+/* ── Right: Power menu ────────────────────────────────────── */
+
+#custom-powermenu {
+  color: @outline;
+  font-size: 14px;
+  padding: 4px 10px;
+  margin-right: 8px;
+}
+
+#custom-powermenu:hover {
+  color: @error;
+  background: @error_container;
+}
+
+/* ── Tooltip ──────────────────────────────────────────────── */
+
+tooltip {
+  background: @surface_container_high;
+  color: @on_surface;
+  border: 1px solid @outline_variant;
+  border-radius: 6px;
+  padding: 4px 8px;
+}
+
+tooltip label {
+  color: @on_surface;
+}

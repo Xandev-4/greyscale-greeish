@@ -1,0 +1,100 @@
+#!/bin/bash
+
+NOTES_DIR="$HOME/notes"
+
+# Ensure notes directory exists
+mkdir -p "$NOTES_DIR"
+
+# Custom fuzzel options for this script
+FUZZEL_OPTS="--font=monospace:size=8 --lines=15 --minimal-lines --width=50 --horizontal-pad=10 --vertical-pad=4 --inner-pad=0 --line-height=12"
+
+# Show main menu
+CHOICE=$(echo -e "New Note\nOpen Note" | fuzzel --dmenu $FUZZEL_OPTS --prompt="Notes Menu: ")
+
+case "$CHOICE" in
+    "New Note")
+        # Prompt for note path (can include subdirectories)
+        NOTE_PATH=$(printf "" | fuzzel --dmenu $FUZZEL_OPTS --prompt="Note path: ")
+        
+        # Exit if user cancels or enters nothing
+        if [ -z "$NOTE_PATH" ]; then
+            exit 0
+        fi
+        
+        # Full path to the note
+        FULL_PATH="$NOTES_DIR/$NOTE_PATH"
+        
+        # Create parent directories if they don't exist using -p flag
+        NOTE_DIR=$(dirname "$FULL_PATH")
+        mkdir -p "$NOTE_DIR"
+        
+        # Open the note in neovim (creates file if it doesn't exist)
+        kitty -e nvim "$FULL_PATH"
+        ;;
+        
+    "Open Note")
+        while true; do
+            # Check if fd is available, otherwise fall back to find
+            if command -v fd &> /dev/null; then
+                # Use fd for faster recursive search
+                SELECTED=$(cd "$NOTES_DIR" && fd --type f --type d | fuzzel --dmenu $FUZZEL_OPTS --prompt="Open (Del=delete): ")
+            else
+                # Fallback to standard find command
+                SELECTED=$(cd "$NOTES_DIR" && find . -type f -o -type d | sed 's|^\./||' | fuzzel --dmenu $FUZZEL_OPTS --prompt="Open (Del=delete): ")
+            fi
+            
+            # Exit if nothing selected
+            if [ -z "$SELECTED" ]; then
+                exit 0
+            fi
+            
+            FULL_PATH="$NOTES_DIR/$SELECTED"
+            
+            # Ask user what to do: Open or Delete
+            ACTION=$(echo -e "Open\nDelete" | fuzzel --dmenu $FUZZEL_OPTS --prompt="Action for '$SELECTED': ")
+            
+            case "$ACTION" in
+                "Delete")
+                    # Confirm deletion
+                    CONFIRM=$(echo -e "No\nYes" | fuzzel --dmenu $FUZZEL_OPTS --prompt="Delete '$SELECTED'? ")
+                    
+                    if [ "$CONFIRM" = "Yes" ]; then
+                        if [ -d "$FULL_PATH" ]; then
+                            rm -rf "$FULL_PATH"
+                            notify-send "Deleted" "Directory '$SELECTED' deleted"
+                        elif [ -f "$FULL_PATH" ]; then
+                            rm -f "$FULL_PATH"
+                            notify-send "Deleted" "File '$SELECTED' deleted"
+                        fi
+                        # Continue the loop to show updated list
+                        continue
+                    else
+                        # User said no, go back to file selection
+                        continue
+                    fi
+                    ;;
+                    
+                "Open")
+                    # Check if it's a directory or file
+                    if [ -d "$FULL_PATH" ]; then
+                        # If directory, show its contents and let user select a file
+                        SUBFILE=$(cd "$FULL_PATH" && find . -type f | sed 's|^\./||' | fuzzel --dmenu $FUZZEL_OPTS --prompt="Select file: ")
+                        
+                        if [ -n "$SUBFILE" ]; then
+                            kitty -e nvim "$FULL_PATH/$SUBFILE"
+                        fi
+                    elif [ -f "$FULL_PATH" ]; then
+                        # If file, open it directly
+                        kitty -e nvim "$FULL_PATH"
+                    fi
+                    break
+                    ;;
+                    
+                *)
+                    # User cancelled, go back
+                    continue
+                    ;;
+            esac
+        done
+        ;;
+esac

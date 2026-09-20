@@ -1,0 +1,15 @@
+* {
+    background: #10140fb3;
+    foreground: #e0e4dbff;
+
+    prompt: #b9ccb4ff;
+    placeholder: #a1ced5ff;
+    input: #e0e4dbff;
+    match: #a1ced5ff;
+
+    selected: #9fd49cff;
+    selected-text: #053911ff;
+    selected-match: #053911ff;
+
+    border: #9fd49cff;
+}

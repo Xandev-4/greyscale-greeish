@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+exec swaylock \
+  -f \
+  --screenshots \
+  --clock \
+  --indicator \
+  --indicator-idle-visible \
+  --indicator-caps-lock \
+  --indicator-radius 128 \
+  --indicator-thickness 8 \
+  --effect-blur 10x5 \
+  --effect-vignette 0.45:0.35 \
+  --effect-compose "color=000000aa" \
+  --fade-in 0.30 \
+  --grace 2 \
+  --ring-color 00000000 \
+  --ring-ver-color 00000000 \
+  --ring-wrong-color 00000000 \
+  --ring-clear-color 00000000 \
+  --key-hl-color b8cbc4 \
+  --bs-hl-color 6f857e \
+  --inside-color 00000000 \
+  --inside-ver-color 00000000 \
+  --inside-wrong-color 00000000 \
+  --inside-clear-color 00000000 \
+  --line-color 00000000 \
+  --line-ver-color 00000000 \
+  --line-wrong-color 00000000 \
+  --separator-color 00000000 \
+  --text-color d9e2df \
+  --text-ver-color ecf3f0 \
+  --text-wrong-color f0d7d5 \
+  --text-clear-color f2d5cf \
+  --font "JetBrains Mono" \
+  --font-size 80

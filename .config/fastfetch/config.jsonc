@@ -1,0 +1,75 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty",
+    "source": "/home/xandev/.config/fastfetch/logos/girl_in_leaves.png",
+    "height": 10,
+    "padding": {
+      "top": 1,
+      "right": 2
+    }
+  },
+  "display": {
+    "separator": " ─ ",
+    "color": {
+      "separator": "bright_black"
+    },
+    "constants": [
+      "──────────────────────"
+    ],
+    "key": {
+      "width": 12
+    }
+  },
+  "modules": [
+    "title",
+    "separator",
+    "break",
+    {
+      "type": "custom",
+      "key": "  CPU",
+      "keyColor": "33",
+      "format": "13th Gen i5-13420H @ 4.60 GHz"
+    },
+    {
+      "type": "custom",
+      "key": "  GPU",
+      "keyColor": "33",
+      "format": "RTX 4050 Laptop"
+    },
+    {
+      "type": "memory",
+      "key": "  RAM",
+      "keyColor": "33"
+    },
+    {
+      "type": "disk",
+      "key": "  Disk",
+      "keyColor": "33",
+      "folders": "/home"
+    },
+    // "break",
+    {
+      "type": "os",
+      "key": "  OS",
+      "keyColor": "32"
+    },
+    {
+      "type": "kernel",
+      "key": "  Kernel",
+      "keyColor": "32"
+    },
+    {
+      "type": "uptime",
+      "key": "  Uptime",
+      "keyColor": "32"
+    },
+    {
+      "type": "shell",
+      "key": "  Shell",
+      "keyColor": "32"
+    },
+    "break"
+    // "colors"
+  ]
+}

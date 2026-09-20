@@ -1,0 +1,92 @@
+window {
+  background: transparent;
+}
+
+.clock-widget,
+.media-widget {
+  background-color: {{colors.surface_container.default.hex}};
+  border-radius: 16px;
+  padding: 24px 32px;
+  min-width: 160px;
+  box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+}
+
+.clock-time {
+  font-size: 48px;
+  font-weight: bold;
+  color: {{colors.on_surface.default.hex}};
+}
+
+.clock-subtitle,
+.media-artist {
+  font-size: 13px;
+  color: {{colors.on_surface_variant.default.hex}};
+}
+
+.media-controls {
+  margin-top: 10px;
+}
+
+.media-controls button {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  background: transparent;
+  border: none;
+  color: {{colors.on_surface.default.hex}};
+  font-size: 18px;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.media-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.stopwatch-widget {
+  background-color: {{colors.surface_container.default.hex}};
+  border-radius: 16px;
+  padding: 24px 32px;
+  min-width: 160px;
+  box-shadow: 2px 4px 9px rgba(0, 0, 0, 0.6);
+}
+
+.stopwatch-time {
+  font-size: 48px;
+  font-weight: bold;
+  color: {{colors.on_surface.default.hex}};
+  font-family: "JetBrainsMono Nerd Font Propo";
+  letter-spacing: 2px;
+}
+
+.stopwatch-controls {
+  margin-top: 10px;
+}
+
+.stopwatch-controls button {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  background: transparent;
+  border: none;
+  color: {{colors.on_surface.default.hex}};
+  font-size: 14px;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+.stopwatch-controls button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.stopwatch-close {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  background: transparent;
+  border: none;
+  color: {{colors.on_surface_variant.default.hex}};
+  font-size: 13px;
+  padding: 2px 4px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.stopwatch-close:hover {
+  color: {{colors.on_surface.default.hex}};
+  background-color: rgba(255, 255, 255, 0.08);
+}

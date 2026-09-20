@@ -1,0 +1,288 @@
+@import url("colors.css");
+
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+  font-size: 13px;
+}
+
+window#waybar {
+  background: transparent;
+  color: @on_surface;
+  border-bottom: 1px solid alpha(@outline, 0.22);
+}
+
+/* =========================
+   Shared capsule modules
+   ========================= */
+#clock,
+#niri-window,
+#pulseaudio,
+#backlight,
+#battery,
+#custom-notification,
+#custom-powermenu,
+#group-music,
+#group-system-tray,
+#workspaces {
+  margin: 5px 0;
+  min-height: 26px;
+  border-radius: 999px;
+  border: 1px solid alpha(@outline, 0.16);
+  background: alpha(@surface_container_highest, 0.72);
+  color: @on_surface;
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+#custom-powermenu,
+#workspaces,
+#custom-notification,
+#group-system-tray,
+#tray {
+  font-family: "JetBrainsMono Nerd Font Propo", "Symbols Nerd Font", sans-serif;
+}
+
+#clock,
+#niri-window,
+#pulseaudio,
+#backlight,
+#battery,
+#custom-notification,
+#custom-powermenu,
+#group-music,
+#group-system-tray {
+  padding: 0 12px;
+}
+
+/* =========================
+   Left modules
+   ========================= */
+#clock {
+  color: @primary_fixed_dim;
+  background: alpha(@primary_container, 0.58);
+  border-color: alpha(@primary, 0.18);
+}
+
+#niri-window {
+  color: alpha(@secondary_fixed, 0.96);
+  background: alpha(@surface_container_highest, 0.66);
+  padding-right: 14px;
+}
+
+#niri-window.empty {
+  color: alpha(@on_surface_variant, 0.55);
+}
+
+/* =========================
+   Workspaces
+   ========================= */
+#workspaces {
+  padding: 0 8px;
+  background: alpha(@surface_container_low, 0.62);
+  border-color: alpha(@outline, 0.12);
+}
+
+#workspaces button {
+  padding: 0;
+  margin: 3px 2px;
+  min-width: 24px;
+  min-height: 24px;
+  border-radius: 999px;
+  background: transparent;
+  color: alpha(@on_surface_variant, 0.78);
+  box-shadow: none;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+#workspaces button label {
+  font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+#workspaces button.active {
+  background: alpha(@primary, 0.24);
+  color: @primary_fixed;
+}
+
+#workspaces button.urgent {
+  background: alpha(@error, 0.22);
+  color: @on_error_container;
+}
+
+#workspaces button:hover {
+  background: alpha(@surface_bright, 0.38);
+  color: @on_surface;
+}
+
+/* =========================
+   Music
+   ========================= */
+#group-music {
+  padding: 0 10px;
+  background: alpha(@surface_container_high, 0.7);
+  border-color: alpha(@tertiary, 0.16);
+}
+
+#mpris {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: @tertiary_fixed;
+}
+
+.drawer.hidden {
+  opacity: 0.01;
+}
+
+#group-music:hover .drawer {
+  opacity: 1;
+}
+
+#custom-music-prev,
+#custom-music-toggle,
+#custom-music-next {
+  font-family:
+    "Symbols Nerd Font", "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+  font-size: 16px;
+  padding: 0 9px;
+  margin: 7px 1px;
+  color: alpha(@on_surface_variant, 0.86);
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  transition:
+    background 180ms ease,
+    color 180ms ease;
+}
+
+#custom-music-prev:hover,
+#custom-music-toggle:hover,
+#custom-music-next:hover {
+  background: alpha(@primary, 0.16);
+  color: @primary_fixed;
+}
+
+/* =========================
+   Right modules
+   ========================= */
+#pulseaudio {
+  color: @secondary_fixed_dim;
+  background: alpha(@secondary_container, 0.56);
+  border-color: alpha(@secondary, 0.14);
+}
+
+#pulseaudio.muted {
+  color: @error;
+  background: alpha(@error_container, 0.26);
+  border-color: alpha(@error, 0.18);
+}
+
+#backlight {
+  color: @primary;
+  background: alpha(@primary_container, 0.5);
+  border-color: alpha(@primary, 0.14);
+}
+
+#battery {
+  color: @primary_fixed_dim;
+  background: alpha(@surface_container_high, 0.7);
+}
+
+#battery.charging {
+  color: @primary_fixed;
+  background: alpha(@primary_container, 0.56);
+  border-color: alpha(@primary, 0.18);
+}
+
+#battery.warning {
+  color: #ffd36a;
+  background: alpha(#ffd36a, 0.14);
+  border-color: alpha(#ffd36a, 0.15);
+}
+
+#battery.critical {
+  color: @error;
+  background: alpha(@error_container, 0.24);
+  border-color: alpha(@error, 0.18);
+}
+
+#custom-notification {
+  color: @tertiary;
+  background: alpha(@tertiary_container, 0.48);
+  border-color: alpha(@tertiary, 0.14);
+}
+
+#custom-powermenu {
+  min-width: 26px;
+  padding: 0;
+  color: @error;
+  background: alpha(@surface_container_high, 0.76);
+  border-color: alpha(@outline, 0.15);
+}
+
+#custom-powermenu label {
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+}
+
+#custom-powermenu:hover {
+  background: alpha(@error_container, 0.22);
+  border-color: alpha(@error, 0.18);
+}
+
+/* =========================
+   System tray as ONE expanding pill
+   ========================= */
+#group-system-tray {
+  padding: 0 10px;
+  background: alpha(@surface_container_high, 0.68);
+  border-color: alpha(@outline, 0.12);
+}
+
+#custom-tray-icon,
+#tray {
+  margin: 0;
+  padding: 0;
+  min-height: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+#custom-tray-icon {
+  min-width: 16px;
+  padding-right: 6px;
+  color: alpha(@outline, 0.92);
+}
+
+#tray {
+  padding-left: 2px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+/* =========================
+   Tooltips
+   ========================= */
+tooltip {
+  background: alpha(@surface_container_highest, 0.96);
+  color: @on_surface;
+  border: 1px solid alpha(@outline, 0.24);
+  border-radius: 14px;
+}
+
+tooltip label {
+  color: @on_surface;
+}

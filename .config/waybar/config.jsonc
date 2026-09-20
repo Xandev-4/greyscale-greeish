@@ -1,0 +1,216 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 8,
+  "modules-left": [
+    "clock",
+    "niri/window"
+  ],
+  "modules-center": [
+    "niri/workspaces"
+  ],
+  "modules-right": [
+    "group/music",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "group/system-tray",
+    "custom/notification",
+    "custom/powermenu"
+  ],
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "niri/window": {
+    "format": "{app_id} · {title}",
+    "icon": true,
+    "max-length": 20,
+    "ignore-empty-text": true,
+    "rewrite": {
+      "^\\s*·\\s*$": "",
+      "^$": ""
+    }
+  },
+  "clock": {
+    "interval": 1,
+    "format": "{:%R 󰃭 %d·%m·%y}",
+    "format-alt": "{:%I:%M %p}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'>{}</span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "group/music": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 280,
+      "children-class": "music-hidden",
+      "transition-left-to-right": false,
+      "click-to-reveal": false
+    },
+    "modules": [
+      "mpris",
+      "custom/music-prev",
+      "custom/music-next"
+    ]
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "󰏤 {dynamic}",
+    "player-icons": {
+      "default": "",
+      "spotify": "",
+      "mpv": "󰕾",
+      "firefox": "󰈹"
+    },
+    "dynamic-len": 28,
+    "interval": 1.5,
+    "tooltip": true,
+    "tooltip-format": "{player}\n{artist} - {title} • {album}",
+    "on-click": "playerctl play-pause"
+  },
+  "custom/music-prev": {
+    "format": "󰒮",
+    "on-click": "playerctl previous",
+    "tooltip": "Previous track"
+  },
+  "custom/music-next": {
+    "format": "󰒭",
+    "on-click": "playerctl next",
+    "tooltip": "Next track"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 {volume}%",
+    "format-bluetooth": "󰂰 {volume}%",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-middle": "swayosd-client --output-volume mute-toggle",
+    "on-scroll-up": "swayosd-client --output-volume raise --max-volume 150",
+    "on-scroll-down": "swayosd-client --output-volume lower --max-volume 150",
+    "tooltip-format": "{desc}\nVolume: {volume}%"
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "on-scroll-up": "~/.config/niri/scripts/brightness-control.sh up",
+    "on-scroll-down": "~/.config/niri/scripts/brightness-control.sh down",
+    "smooth-scrolling-threshold": 1,
+    "tooltip-format": "Brightness: {percent}%"
+  },
+  "battery": {
+    "interval": 60,
+    "states": {
+      "warning": 35,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-full": "󱟢 {capacity}%",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󱟢"
+    ],
+    "tooltip-format": "{timeTo}\nCapacity: {capacity}%\nPower: {power}W"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8,
+    "show-passive-items": true
+  },
+  "group/system-tray": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 260,
+      "transition-left-to-right": true,
+      "click-to-reveal": true
+    },
+    "modules": [
+      "custom/tray-icon",
+      "tray"
+    ]
+  },
+  "custom/tray-icon": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "System Tray"
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/powermenu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/powermenu.sh",
+    "interval": 3600
+  }
+}

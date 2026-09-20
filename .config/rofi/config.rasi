@@ -1,0 +1,8 @@
+@import "colors.rasi"
+
+configuration {
+  modi: "drun,run,window";
+  show-icons: true;
+}
+
+@theme "wallpaper-picker"

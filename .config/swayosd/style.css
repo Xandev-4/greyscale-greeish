@@ -1,0 +1,66 @@
+@define-color primary #9fd49c;
+@define-color on_surface #e0e4db;
+@define-color on_surface_variant #c2c9bd;
+@define-color surface_container_high #272b26;
+@define-color surface_container_highest #313630;
+@define-color outline_variant #424940;
+@define-color shadow #000000;
+
+/* ==================== GLOBAL ==================== */
+* {
+  font-family: "JetBrainsMono Nerd Font", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transition: all 150ms ease;
+}
+
+/* ==================== OSD WINDOW ==================== */
+window {
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+#container {
+  background-color: alpha(@surface_container_high, 0.7);
+  border-radius: 5px;
+  border: 1px solid @outline_variant;
+  box-shadow: 0 8px 24px alpha(@shadow, 0.5);
+  padding: 14px 20px;
+  margin: 0;
+}
+
+/* ==================== ICON & LABEL ==================== */
+image,
+label {
+  color: @on_surface;
+  margin: 0 8px;
+}
+
+image:disabled,
+progressbar:disabled {
+  opacity: 0.5;
+}
+
+/* ==================== PROGRESS BAR ==================== */
+progressbar {
+  min-width: 200px;
+  min-height: 6px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+progressbar trough {
+  background-color: @surface_container_highest;
+  border-radius: 999px;
+  min-height: 6px;
+}
+
+progressbar progress {
+  background-color: @primary;
+  border-radius: 999px;
+  min-height: 6px;
+}

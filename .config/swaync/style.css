@@ -1,0 +1,208 @@
+@import url("colors.css");
+
+/* ==================== GLOBAL ==================== */
+* {
+  font-family: "JetBrainsMono Nerd Font", "SF Pro Display", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* ==================== CONTROL CENTER PANEL ==================== */
+.control-center {
+  background-color: alpha(@surface_container_high, 0.5);
+  border-radius: 16px;
+  border: 1px solid @outline_variant;
+  box-shadow: 0 8px 24px alpha(@shadow, 0.5);
+  padding: 12px;
+  color: @on_surface;
+}
+
+.control-center-list {
+  background-color: transparent;
+}
+
+.control-center-list-placeholder {
+  color: @on_surface_variant;
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+/* ==================== TITLE WIDGET ==================== */
+.widget-title {
+  color: @on_surface;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 8px 4px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid @outline_variant;
+}
+
+.widget-title > button {
+  background-color: alpha(@primary, 0.12);
+  color: @primary;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 150ms ease;
+}
+
+.widget-title > button:hover {
+  background-color: alpha(@primary, 0.24);
+}
+
+/* ==================== DND WIDGET ==================== */
+.widget-dnd {
+  color: @on_surface;
+  padding: 8px 4px;
+  margin: 4px 0;
+  border-bottom: 1px solid @outline_variant;
+}
+
+.widget-dnd > switch {
+  background-color: @surface_container_highest;
+  border-radius: 20px;
+  border: none;
+}
+
+.widget-dnd > switch:checked {
+  background-color: @primary;
+  color: @on_primary;
+}
+
+.widget-dnd > switch slider {
+  background-color: @on_surface_variant;
+  border-radius: 50%;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.widget-dnd > switch:checked slider {
+  background-color: @on_primary;
+}
+
+/* ==================== NOTIFICATION ROW ==================== */
+.notification-row {
+  background-color: transparent;
+  margin: 4px 0;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background-color: transparent;
+}
+
+/* ==================== NOTIFICATION CARD ==================== */
+.notification {
+  background-color: alpha(@surface_container, 0.95);
+  border-radius: 12px;
+  border: 1px solid @outline_variant;
+  padding: 0;
+  margin: 2px 0;
+  transition: background-color 150ms ease;
+}
+
+.notification:hover {
+  background-color: @surface_container_high;
+}
+
+/* Urgency states */
+.notification.low {
+  border-left: 3px solid @outline;
+}
+
+.notification.normal {
+  border-left: 3px solid @primary;
+}
+
+.notification.critical {
+  border-left: 3px solid @error;
+  background-color: alpha(@error_container, 0.3);
+}
+
+/* ==================== NOTIFICATION CONTENT ==================== */
+.notification-content {
+  padding: 12px;
+}
+
+.notification-default-action {
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.notification-default-action:hover {
+  background-color: alpha(@primary, 0.08);
+}
+
+.notification-image {
+  border-radius: 8px;
+}
+
+.notification-summary {
+  color: @on_surface;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.notification-body {
+  color: @on_surface_variant;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.notification-appname {
+  color: @primary;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.notification-time {
+  color: @outline;
+  font-size: 11px;
+}
+
+/* ==================== ACTION BUTTONS ==================== */
+.notification-action {
+  background-color: alpha(@secondary_container, 0.6);
+  color: @on_secondary_container;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid @outline_variant;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background-color 150ms ease;
+}
+
+.notification-action:hover {
+  background-color: @secondary_container;
+}
+
+.notification-action:first-child {
+  border-radius: 0 0 0 10px;
+  border-right: 1px solid @outline_variant;
+}
+
+.notification-action:last-child {
+  border-radius: 0 0 10px 0;
+}
+
+/* ==================== CLOSE BUTTON ==================== */
+.close-button {
+  background-color: transparent;
+  color: @on_surface_variant;
+  border-radius: 50%;
+  padding: 4px;
+  min-width: 24px;
+  min-height: 24px;
+  font-size: 14px;
+  transition: all 150ms ease;
+}
+
+.close-button:hover {
+  background-color: alpha(@error, 0.15);
+  color: @error;
+}
