@@ -26,7 +26,7 @@ curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/dotfiles/main/
 | **Terminal**          | [Kitty](https://sw.kovidgoyal.net/kitty/)                                               |
 | **Shell & Prompt**    | [Fish](https://fishshell.com/) + [Starship](https://starship.rs/)                       |
 | **Editor**            | [Neovim](https://neovim.io/) (tracked via Git Submodule)                                |
-| **File Managers**     | [Yazi](https://github.com/sxyazi/yazi) (TUI) & Thunar (GUI)                             |
+| **File Managers**     | [Yazi](https://github.com/sxyazi/yazi) (TUI) & Dolphin (GUI)                            |
 | **Audio & Music**     | PipeWire / WirePlumber + `mpd` & `rmpc`                                                 |
 | **Notifications**     | [SwayNC](https://github.com/ErikReider/SwayNotificationCenter)                          |
 | **On-Screen Display** | [SwayOSD](https://github.com/ErikReider/SwayOSD)                                        |
@@ -52,7 +52,7 @@ Modifier key: `Mod` = `Super` (Windows Key)
 ### Applications & Utilities
 
 - `Mod + B` — Web Browser (`zen-browser`)
-- `Mod + E` — GUI File Manager (`thunar`)
+- `Mod + E` — GUI File Manager (`dolphin`)
 - `Mod + Y` — Terminal File Manager (`kitty yazi`)
 - `Mod + R` — TUI Music Player (`kitty rmpc`)
 - `Ctrl + Shift + Escape` — System Monitor (`kitty btop`)
