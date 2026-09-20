@@ -4,7 +4,7 @@ set -e
 # ==============================================================================
 # Configuration
 # ==============================================================================
-DOTS_REPO="https://github.com/YOUR_GITHUB_USERNAME/dotfiles.git"
+DOTS_REPO="https://github.com/Xandev-4/greyscale-greeish"
 DOTS_DIR="$HOME/.dotfiles"
 BACKUP_DIR="$HOME/.dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
 
