@@ -1,0 +1,47 @@
+# Window Manager & Shell
+niri
+waybar
+swaync
+swayosd
+fuzzel
+rofi
+aylurs-gtk-shell-git
+
+# Desktop Daemons & Script Tools
+kitty
+cliphist
+hyprpicker
+playerctl
+wireplumber
+pipewire-pulse
+network-manager-applet
+blueman
+lxqt-policykit-agent
+xdg-desktop-portal-wlr
+wayvibes-git
+
+# Fonts & Theming
+matugen
+qt5ct-kde
+qt6ct-kde
+darkly-bin
+starship
+fastfetch
+ttf-jetbrains-mono-nerd
+ttf-meslo-nerd
+noto-fonts-emoji
+cantarell-fonts
+
+# Rice Applications
+fish
+yazi
+ffmpegthumbnailer
+rmpc
+mpd
+btop
+dolphin
+zen-browser-bin
+zoxide
+fzf
+bat
+lsd
