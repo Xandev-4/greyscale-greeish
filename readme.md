@@ -8,9 +8,9 @@ An automated, scrollable-tiling desktop setup powered by **Niri**, **Waybar**, *
 
 Deploy the entire desktop, checkout configurations, sync the Neovim submodule, and optionally install system and AUR packages:
 
-\`\`\`bash
+```bash
 curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/dotfiles/main/.config/install.sh | bash
-\`\`\`
+```
 
 > **Note:** The script will prompt you for your AUR helper of choice (`yay` or `paru`), back up existing conflicting files to `~/.dotfiles-backup-<timestamp>`, and preview all package installations before proceeding.
 
@@ -73,7 +73,7 @@ Modifier key: `Mod` = `Super` (Windows Key)
 
 Configs are tracked using a bare Git repository targeting `$HOME`. Untracked files are hidden by default to keep `dots status` clean.
 
-\`\`\`bash
+```bash
 
 # Check modified files
 
@@ -90,4 +90,4 @@ dots push
 dots add .config/nvim
 dots commit -m "chore: update nvim submodule"
 dots push
-\`\`\`
+```
