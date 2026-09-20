@@ -18,7 +18,7 @@ echo ""
 echo "Select your AUR helper:"
 echo "  1) yay"
 echo "  2) paru"
-read -rp "Enter choice [1 or 2] (default: 1): " HELPER_CHOICE
+read -rp "Enter choice [1 or 2] (default: 1): " HELPER_CHOICE </dev/tty
 HELPER_CHOICE=${HELPER_CHOICE:-1}
 
 case "$HELPER_CHOICE" in
@@ -109,7 +109,7 @@ fi
 
 echo ""
 echo "=========================================================="
-read -rp "Ready to install these packages on your system? [y/N]: " INSTALL_PKGS
+read -rp "Ready to install these packages on your system? [y/N]: " INSTALL_PKGS </dev/tty
 
 case "$INSTALL_PKGS" in
     [yY][eE][sS]|[yY])
