@@ -9,7 +9,7 @@ An automated, scrollable-tiling desktop setup powered by **Niri**, **Waybar**, *
 Deploy the entire desktop, checkout configurations, sync the Neovim submodule, and optionally install system and AUR packages:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/dotfiles/main/.config/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/Xandev-4/greyscale-greenish/main/.config/install.sh | bash
 ```
 
 > **Note:** The script will prompt you for your AUR helper of choice (`yay` or `paru`), back up existing conflicting files to `~/.dotfiles-backup-<timestamp>`, and preview all package installations before proceeding.
